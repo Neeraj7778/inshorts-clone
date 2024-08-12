@@ -4,29 +4,23 @@ const newsSchema = new mongoose.Schema({
     publisher: {
         type: String,
         default:null,
-        // required: true
     },
     title: {
         type: String,
         default:null,
-        // required: true
     },
     author: {
         type: String,
         default:null,
-        // required: true
+
     },
     url: {
         type: String,
         default:null,
-        // required: true,
-        // unique: true
     },
     urlToImage: {
         type: String,
         default:null,
-        // required: true,
-        // unique: true
     },
     publishedAt: {
         type: String,
