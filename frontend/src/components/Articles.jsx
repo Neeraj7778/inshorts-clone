@@ -15,7 +15,6 @@ const Articles = () => {
     const dailyNews = async() => {
         try {
             let response = await getNews();
-            console.log(response.data.articles.publisher);
             setNews(response.data.articles);
         } 
         catch (error) {
