@@ -11,10 +11,7 @@ export const getNews = async (req, response) => {
 
         for (let article of articles) {
             // Check if the article already exists
-            const existingArticle = await newsModel.findOne({ url: article.url });
-            const existingimage = await newsModel.findOne({ urlToImage: article.urlToImage });
-
-
+            
                 const news = new newsModel({
                     title: article.title,
                     author: article.author,
@@ -27,7 +24,6 @@ export const getNews = async (req, response) => {
 
                 const savedArticle = await news.save(); // Save the news article
                 savedArticles.push(savedArticle); // Add to array
-                // console.log('Saved article:', savedArticle);
         }
 
         response.status(200).json({
