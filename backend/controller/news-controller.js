@@ -14,10 +14,11 @@ export const getNews = async (req, response) => {
             const existingArticle = await newsModel.findOne({ url: article.url });
             const existingimage = await newsModel.findOne({ urlToImage: article.urlToImage });
 
-            if (!existingArticle && !existingimage) {
+
                 const news = new newsModel({
                     title: article.title,
                     author: article.author,
+                    description: article.description,
                     url: article.url,
                     urlToImage: article.urlToImage,
                     publishedAt: article.publishedAt,
@@ -27,9 +28,6 @@ export const getNews = async (req, response) => {
                 const savedArticle = await news.save(); // Save the news article
                 savedArticles.push(savedArticle); // Add to array
                 // console.log('Saved article:', savedArticle);
-            } else {
-                console.log('Article already exists, skipping:', article.url);
-            }
         }
 
         response.status(200).json({
